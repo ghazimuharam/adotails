@@ -1,7 +1,9 @@
 module.exports = {
-  purge: [
-    './resources/views/*.edge',
-  ],
+  purge: {
+    content: [
+      './resources/views/*.edge',
+    ],
+  },
   darkMode: 'media', // or 'media' or 'class'
   theme: {
     extend: {},
