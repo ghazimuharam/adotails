@@ -1,4 +1,22 @@
-# Adonis fullstack application
+# Adotails
+
+Adotails is a boilerplate for AdonisJS with TailwindCSS Framework
+
+Use the npm to generate TailwindCSS file for development process
+
+```bash
+npm run dev
+```
+
+Use the npm to generate TailwindCSS file for production build
+
+```bash
+npm run build
+```
+
+The CSS file for Tailwind Framework CSS is located in `public/app.css`
+
+## Adonis fullstack application
 
 This is the fullstack boilerplate for AdonisJs, it comes pre-configured with.
 
