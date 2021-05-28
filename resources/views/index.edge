@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {{ style('app') }}
+    <link rel="icon" href="https://cdn.shopify.com/s/files/1/1547/5347/products/Favicon_Tip_600x.png" type="image/gif" sizes="16x16">
+    <title>Landing Page</title>
+</head>
+<body>
+    {{--  Start screen background  --}}
+    <div class="flex h-screen bg-green-300 p-10">
+        <div class="w-1/2">
+            <div class="w-1/2 p-10 pb-20 bg-white rounded-3xl">
+                
+                {{--  Start number of participants  --}}
+                <div class="border-b-2 pb-3">
+                    <h3 class="font-bold text-2xl text-gray-700">Number of participants</h3>
+
+                    <div class="relative pt-1 my-3">
+                        <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-green-600 bg-opacity-30">
+                        <div style="width:60%" class="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-green-800"></div>
+                        </div>
+                    </div>
+                </div>
+                {{--  End number of participants  --}}
+
+                {{--  Start Location  --}}
+                <div class="py-5 border-b-2 pb-5">
+                    <h3 class="font-bold text-2xl text-gray-700">Location</h3>
+                    <div class="flex overflow-x-auto space-x-5 py-3">
+                        <div class="flex p-2 rounded-full border border-gray-500 border-opacity-40 shadow-md min-w-max">
+                            <div class="flex space-x-3 items-center justify-items-center px-1">
+                                <p class="font-medium">United Kingdom</p>
+                                <svg class="h-3 opacity-40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="flex p-2 rounded-full border border-gray-500 border-opacity-40 shadow-md min-w-max">
+                            <div class="flex space-x-3 items-center justify-items-center px-1">
+                                <p class="font-medium">USA</p>
+                                <svg class="h-3 opacity-40" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {{--  End Location  --}}
+
+                {{--  Start Alert  --}}
+                <div class="py-5 border-b-2 pb-5">
+                    <div class="flex justify-between justify-items-center items-center">
+                        <h3 class="font-bold text-2xl text-gray-700">Alert</h3>
+                        <div id="alertToggler" onclick="alertToggler()" class="flex space-x-1 h-10 w-1/5 rounded-full bg-green-700 p-1 bg-opacity-30 cursor-pointer">
+                            <div id="offAlert" class="h-8 w-1/2 rounded-full bg-white fade-in-slow"></div>
+                            <div id="onAlert" class="invisible h-8 w-1/2 rounded-full bg-green-700"></div>
+                        </div>
+                    </div>
+                </div>    
+                {{--  End Alert  --}}
+            </div>
+        </div>
+    </div>
+    {{--  End screen background  --}}
+
+    <script>
+        function alertToggler() {
+            document.getElementById('onAlert').classList.toggle('fade-in-slow');
+            document.getElementById('offAlert').classList.toggle('invisible');
+            document.getElementById('onAlert').classList.toggle('invisible');
+        } 
+    </script>
+</body>
+</html>
