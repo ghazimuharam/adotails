@@ -1,7 +1,6 @@
 'use strict'
 
 const User = use('App/Models/User')
-const View = use('View')
 
 class UserController {
 
