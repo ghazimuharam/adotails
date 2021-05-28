@@ -18,3 +18,5 @@ const Route = use('Route')
 
 Route.on('/').render('welcome')
 Route.on('/landing').render('index')
+
+Route.get('/login', 'UserController.index')
