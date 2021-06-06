@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Login</title>
+  {{ style('app') }}
+</head>
+<body>
+  <div class="flex h-screen items-center align-middle bg-black">
+    <h1 class="w-2/5 text-center text-7xl" style="color:#C68383;">HYGEIA</h1>
+    <div class="px-14 bg-white w-3/5 h-full">
+      <div class="items-center align-middle">
+        <h2 class="text-4xl pb-2">Sign In</h2>
+        <p class="pb-5">Sign in to continue to our application</p>
+        <form class="flex flex-col space-y-2" action="">
+            <input class="border-2 border-red-700 rounded-lg p-2 shadow-xl" type="email" name="email" placeholder="Email" />
+            <input class="border-2 border-red-700 rounded-lg p-2 shadow-xl" type="password" name="password" placeholder="Password" />
+            <input class="bg-black rounded-lg p-2 shadow-md" style="color:white;" type="submit" name="submit" value="Sign In" />
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
