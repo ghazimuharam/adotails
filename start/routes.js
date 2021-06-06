@@ -16,7 +16,7 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.get('/', 'HomeController.index')
-Route.on('/landing').render('index')
+Route.on('/').render('landing.index')
+Route.on('/tes').render('index')
 
 Route.get('/login', 'UserController.index')
