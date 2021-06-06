@@ -10,6 +10,7 @@ module.exports = {
       colors: {
         'hygeia-white': '#F6F7F9',
         'hygeia-btn-black': '#3D3E40',
+        'hygeia-pink': '#C68383',
       },
       fontSize: {
         '7xl': '5rem',

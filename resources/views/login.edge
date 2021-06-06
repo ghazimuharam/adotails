@@ -7,17 +7,30 @@
   <title>Login</title>
   {{ style('app') }}
 </head>
-<body>
-  <div class="flex h-screen items-center align-middle bg-black">
-    <h1 class="w-2/5 text-center text-7xl" style="color:#C68383;">HYGEIA</h1>
-    <div class="px-14 bg-white w-3/5 h-full">
-      <div class="items-center align-middle">
-        <h2 class="text-4xl pb-2">Sign In</h2>
-        <p class="pb-5">Sign in to continue to our application</p>
-        <form class="flex flex-col space-y-2" action="">
-            <input class="border-2 border-red-700 rounded-lg p-2 shadow-xl" type="email" name="email" placeholder="Email" />
-            <input class="border-2 border-red-700 rounded-lg p-2 shadow-xl" type="password" name="password" placeholder="Password" />
-            <input class="bg-black rounded-lg p-2 shadow-md" style="color:white;" type="submit" name="submit" value="Sign In" />
+<body class="font-display">
+  <div class="flex h-screen items-center align-middle justify-items-center space-x-5">
+
+    <div class="flex flex-col justify-center h-full w-2/5 bg-black">
+      <h1 class="text-7xl text-center font-bold uppercase text-hygeia-pink">Hygeia</h1>
+    </div>
+
+    <div class="container w-3/5 px-32">
+      <div class="flex flex-col w-full">
+        <h1 class="text-5xl">Sign In</h1>
+        <p class="py-5 text-xl text-gray-500">Sign in to continue to our application</p>
+        <form action="" method="POST" class="flex flex-col space-y-2">
+          <div class="py-10">
+            <div>
+              <input class="p-1 py-3 border-b-2 focus:border-black focus:outline-none w-full" type="text" name="email" placeholder="Email">
+            </div>
+            <div>
+              <input class="p-1 py-3 border-b-2 focus:border-black focus:outline-none w-full" type="password" name="password" placeholder="Password">
+            </div>
+          </div>
+
+          <div>
+            <button class="mt-10 w-full bg-hygeia-btn-black py-3 rounded-lg text-xl font-semibold text-hygeia-white" type="submit">Sign In</button>
+          </div>
         </form>
       </div>
     </div>

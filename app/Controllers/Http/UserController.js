@@ -6,7 +6,7 @@ class UserController {
 
     async index({ request, response, view }){
         const user = await User.where({'id': 1}).first()
-        return view.render('index', { data: user })
+        return view.render('login', { data: user })
     }
 
 }
