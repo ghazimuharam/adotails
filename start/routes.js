@@ -17,6 +17,7 @@
 const Route = use('Route')
 
 Route.on('/').render('landing.index')
-Route.on('/tes').render('index')
+Route.on('/about').render('landing.about')
+Route.on('/send').render('landing.send')
 
 Route.get('/login', 'UserController.index')
