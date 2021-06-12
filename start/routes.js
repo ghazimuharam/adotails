@@ -20,4 +20,15 @@ Route.on('/').render('landing.index')
 Route.on('/about').render('landing.about')
 Route.on('/send').render('landing.send')
 
-Route.get('/login', 'UserController.index')
+Route
+    .group(() => {
+        Route.get('/login', 'UserController.index').as('get.login')
+        Route.post('/login', 'UserController.authenticate').as('post.login')
+    }).middleware(['guest'])
+
+Route
+    .group(() => {
+        Route.get('/dashboard', 'DashboardController.index').as('get.dashboard')
+        Route.get('/logout', 'UserController.destroy').as('post.logout')
+        Route.get('/me', 'UserController.me')
+    }).middleware(['auth'])
