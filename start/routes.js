@@ -31,6 +31,9 @@ Route
 Route
     .group(() => {
         Route.get('/dashboard', 'DashboardController.index').as('get.dashboard')
+        Route.get('/dashboard/articles', 'DashboardController.article').as('get.dashboard.article')
+        Route.get('/dashboard/report', 'DashboardController.report').as('get.dashboard.report')
+        Route.get('/dashboard/setting', 'DashboardController.setting').as('get.dashboard.setting')
         Route.get('/logout', 'UserController.destroy').as('post.logout')
         Route.get('/me', 'UserController.me')
     }).middleware(['auth'])

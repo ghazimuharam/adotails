@@ -22,6 +22,45 @@ class DashboardController {
   }
 
   /**
+   * Show a list of all dashboards.
+   * GET dashboards
+   *
+   * @param {object} ctx
+   * @param {Request} ctx.request
+   * @param {Response} ctx.response
+   * @param {View} ctx.view
+   */
+   async article ({ request, response, view }) {
+    return view.render('admin.article')
+  }
+
+  /**
+   * Show a list of all dashboards.
+   * GET dashboards
+   *
+   * @param {object} ctx
+   * @param {Request} ctx.request
+   * @param {Response} ctx.response
+   * @param {View} ctx.view
+   */
+   async report ({ request, response, view }) {
+    return view.render('admin.report')
+  }
+
+  /**
+   * Show a list of all dashboards.
+   * GET dashboards
+   *
+   * @param {object} ctx
+   * @param {Request} ctx.request
+   * @param {Response} ctx.response
+   * @param {View} ctx.view
+   */
+   async setting ({ request, response, view }) {
+    return view.render('admin.setting')
+  }
+
+  /**
    * Render a form to be used for creating a new dashboard.
    * GET dashboards/create
    *
