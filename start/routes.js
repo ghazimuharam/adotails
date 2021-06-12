@@ -20,7 +20,8 @@ Route.get('/', 'LandingController.index').as('get.home')
 Route.get('/about', 'LandingController.showAbout').as('get.about')
 Route.get('/article', 'LandingController.showArticle').as('get.article')
 Route.get('/report', 'LandingController.showReport').as('get.report')
-Route.on('/send').render('landing.send')
+Route.post('/report', 'LandingController.storeReport').as('post.report')
+Route.get('/send', 'LandingController.successReport').as('get.successreport')
 
 Route
     .group(() => {

@@ -4,6 +4,9 @@
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
+const Report = use('App/Models/Report')
+const { validate } = use('Validator')
+
 /**
  * Resourceful controller for interacting with landings
  */
@@ -18,7 +21,7 @@ class LandingController {
    * @param {View} ctx.view
    */
   async index ({ request, response, view }) {
-    view.render('landing.index')
+    return view.render('landing.index')
   }
 
   /**
@@ -93,6 +96,65 @@ class LandingController {
    */
   async showReport ({ params, request, response, view }) {
     return view.render('landing.report')
+  }
+
+  /**
+   * Display a single landing.
+   * GET landings/:id
+   *
+   * @param {object} ctx
+   * @param {Request} ctx.request
+   * @param {Response} ctx.response
+   * @param {View} ctx.view
+   * @param {Session} ctx.Session
+   */
+   async storeReport ({ params, request, response, view, session }) {
+    const requestData = request.body
+
+    const rules = { 
+      title: 'required', 
+      description: 'required' 
+    }
+    
+    const validation = await validate(request.all(), rules)
+
+    if (validation.fails()) {
+      session
+        .withErrors(validation.messages())
+        .flashAll()
+
+      session.flash({errorMessage: 'Report not added!'})
+
+      return response.redirect('back')
+    }
+
+    const report = new Report()
+
+    report.title = requestData.title
+    report.description = requestData.description
+    report.location = requestData.location
+    report.time = requestData.time
+    report.reporter = requestData.reporter
+    report.phone = requestData.phone
+    
+    await report.save()
+
+    session.flash({successMessage: 'Report added successfully!'})
+    
+    return response.route('get.successreport')
+  }
+
+  /**
+   * Render a form to update an existing landing.
+   * GET landings/:id/edit
+   *
+   * @param {object} ctx
+   * @param {Request} ctx.request
+   * @param {Response} ctx.response
+   * @param {View} ctx.view
+   */
+   async successReport ({ params, request, response, view }) {
+     return view.render('landing.send')
   }
 
   /**
