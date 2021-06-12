@@ -16,12 +16,11 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.on('/').render('landing.index')
-Route.on('/about').render('landing.about')
+Route.get('/', 'LandingController.index').as('get.home')
+Route.get('/about', 'LandingController.showAbout').as('get.about')
+Route.get('/article', 'LandingController.showArticle').as('get.article')
+Route.get('/report', 'LandingController.showReport').as('get.report')
 Route.on('/send').render('landing.send')
-Route.on('/articles').render('landing.articles')
-Route.on('/report').render('landing.report')
-Route.on('/admin/dashboard').render('admin.dashboard')
 
 Route
     .group(() => {
