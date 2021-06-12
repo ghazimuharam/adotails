@@ -23,4 +23,15 @@ Route.on('/articles').render('landing.articles')
 Route.on('/report').render('landing.report')
 Route.on('/admin/dashboard').render('admin.dashboard')
 
-Route.get('/login', 'UserController.index')
+Route
+    .group(() => {
+        Route.get('/login', 'UserController.index').as('get.login')
+        Route.post('/login', 'UserController.authenticate').as('post.login')
+    }).middleware(['guest'])
+
+Route
+    .group(() => {
+        Route.get('/dashboard', 'DashboardController.index').as('get.dashboard')
+        Route.get('/logout', 'UserController.destroy').as('post.logout')
+        Route.get('/me', 'UserController.me')
+    }).middleware(['auth'])
