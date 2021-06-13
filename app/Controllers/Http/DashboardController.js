@@ -4,6 +4,9 @@
 /** @typedef {import('@adonisjs/framework/src/Response')} Response */
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
+const User = use('App/Models/User')
+const Report = use('App/Models/Report')
+
 /**
  * Resourceful controller for interacting with dashboards
  */
@@ -18,7 +21,12 @@ class DashboardController {
    * @param {View} ctx.view
    */
   async index ({ request, response, view }) {
-    return view.render('admin.dashboard')
+    const total_user = await User.all()
+    const open_report = await Report.where({status: 1}).fetch()
+    const close_report = await Report.where({status: 0}).fetch()
+
+    const stats = {total_user: total_user.toJSON().length, open_report: open_report.toJSON().length, close_report: close_report.toJSON().length}
+    return view.render('admin.dashboard', {stats: stats})
   }
 
   /**
@@ -44,7 +52,9 @@ class DashboardController {
    * @param {View} ctx.view
    */
    async report ({ request, response, view }) {
-    return view.render('admin.report')
+    const reports = await Report.all()
+
+    return view.render('admin.report', {reports: reports.toJSON()})
   }
 
   /**
