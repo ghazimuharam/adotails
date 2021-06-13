@@ -16,7 +16,7 @@
     <div class="justify-items-center">
       <h1 class="text-center text-4xl font-semibold leading-tight mb-3">Report</h1>
 
-      <div class="border- border-black rounded-2xl shadow-2xl m-auto w-3/4 p-16">
+      <div class="border- border-black rounded-2xl shadow-2xl m-auto md:w-3/4 p-8 md:p-16">
         @if(flashMessage('successMessage'))
           <div class="bg-green-300 p-2">
             {{ flashMessage('successMessage') }}
@@ -49,58 +49,58 @@
         <form action="{{ route('post.report') }}" method="POST" class="flex flex-col space-y-2">
           {{ csrfField() }}
           <div class="flex flex-col space-y-5 text-center py-2">
-            <div class="flex flex-row items-center space-x-3">
+            <div class="flex flex-col items-start md:flex-row md:items-center md:space-x-3">
               <div class="w-1/12 text-left">
                 <label for="title">Title </label>  
               </div> 
-              <div class="w-11/12">
+              <div class="w-full md:w-11/12">
                 <input class="p-1 pl-2 py-3 rounded-lg focus:outline-none w-full" type="text" name="title" value="{{ old('title') }}">
               </div>
             </div>
-            <div class="flex flex-row items-center space-x-3">
+            <div class="flex flex-col items-start md:flex-row md:items-center md:space-x-3">
               <div class="w-1/12 text-left">
                 <label for="description">Description </label>  
-              </div>
-              <div class="w-11/12">
+              </div> 
+              <div class="w-full md:w-11/12">
                 <input class="p-1 pl-2 py-3 rounded-lg focus:outline-none w-full" type="text" name="description" value="{{ old('description') }}">
               </div>
             </div>
-            <div class="flex flex-row items-center space-x-3">
+            <div class="flex flex-col items-start md:flex-row md:items-center md:space-x-3">
               <div class="w-1/12 text-left">
                 <label for="location">Location </label>  
               </div>
-              <div class="w-11/12">
+              <div class="w-full md:w-11/12">
                 <input class="p-1 pl-2 py-3 rounded-lg focus:outline-none w-full" type="text" name="location" value="{{ old('location') }}">
               </div>
             </div>
-            <div class="flex flex-row items-center space-x-3">
+            <div class="flex flex-col items-start md:flex-row md:items-center md:space-x-3">
               <div class="w-1/12 text-left">
                 <label for="time">Time </label>  
               </div>
-              <div class="w-11/12">
+              <div class="w-full md:w-11/12">
                 <input class="p-1 pl-2 py-3 rounded-lg focus:outline-none w-full" type="text" name="time" value="{{ old('time') }}">
               </div>
             </div>
-            <div class="flex flex-row items-center space-x-3">
+            <div class="flex flex-col items-start md:flex-row md:items-center md:space-x-3">
               <div class="w-1/12 text-left">
                 <label for="reporter">Reporter Name </label>  
               </div>
-              <div class="w-11/12">
+              <div class="w-full md:w-11/12">
                 <input class="p-1 pl-2 py-3 rounded-lg focus:outline-none w-full" type="text" name="reporter" value="{{ old('reporter') }}">
               </div>
             </div>
-            <div class="flex flex-row items-center space-x-3">
+            <div class="flex flex-col items-start md:flex-row md:items-center md:space-x-3">
               <div class="w-1/12 text-left">
                 <label for="phone">Phone Number </label>  
               </div>
-              <div class="w-11/12">
+              <div class="w-full md:w-11/12">
                 <input class="p-1 pl-2 py-3 rounded-lg focus:outline-none w-full" type="text" name="phone" value="{{ old('phone') }}">
               </div>
             </div>
           </div>
 
           <div class="text-right">
-            <button class=" bg-hygeia-btn-black p-2 px-12 text-hygeia-white rounded-lg shadow-xl focus:outline-none" type="submit">Send</button>
+            <button class="bg-hygeia-btn-black p-2 px-8 md:px-12 text-hygeia-white rounded-lg shadow-xl focus:outline-none" type="submit">Send</button>
           </div>
         </form>
       </div>

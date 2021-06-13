@@ -11,20 +11,20 @@
   @include('partials/header')
 
   {{--  BEGIN CONTENT  --}}
-  <section class="flex h-screen items-center align-middle px-10">
+  <section class="flex flex-col mt-10 md:mt-0 md:flex-row h-screen items-center align-middle md:px-10">
 
     <div class="w-1/2 justify-items-center">
-      <h1 class="text-6xl 2xl:text-8xl font-semibold leading-tight">Web Pelaporan Kebersihan Lingkungan</h1>
-      <h2 class="text-2xl py-5">Laporkan masalah kebersihan lingkungan di sekitarmu</h2>
+      <h1 class="text-4xl md:text-6xl 2xl:text-8xl font-semibold leading-tight">Web Pelaporan Kebersihan Lingkungan</h1>
+      <h2 class="mt-8 md:mt-0 text-lg md:text-2xl 2xl:py-5">Laporkan masalah kebersihan lingkungan di sekitarmu</h2>
 
-      <div class="mt-12">
+      <div class="mt-8 2xl:mt-12">
         <a href="{{ route('get.report') }}">
-          <button class="bg-hygeia-btn-black p-2 px-12 text-hygeia-white rounded-lg">Laporkan masalah</button>
+          <button class="bg-hygeia-btn-black p-2 md:px-12 text-hygeia-white rounded-lg">Laporkan masalah</button>
         </a>
       </div>
     </div>
 
-    <div class="w-1/2">
+    <div class="w-full md:w-1/2">
       <img src="{{ assetsUrl('assets/landing/maps.png') }}" alt="">
     </div>
   </section>
