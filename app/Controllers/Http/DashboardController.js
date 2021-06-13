@@ -71,6 +71,45 @@ class DashboardController {
   }
 
   /**
+   * Show a list of all dashboards.
+   * GET dashboards
+   *
+   * @param {object} ctx
+   * @param {Request} ctx.request
+   * @param {Response} ctx.response
+   * @param {View} ctx.view
+   */
+   async addArticle ({ request, response, view }) {
+    return view.render('admin.addArticle')
+  }
+
+  /**
+   * Show a list of all dashboards.
+   * GET dashboards
+   *
+   * @param {object} ctx
+   * @param {Request} ctx.request
+   * @param {Response} ctx.response
+   * @param {View} ctx.view
+   */
+   async editArticle ({ request, response, view }) {
+    return view.render('admin.editArticle')
+  }
+
+  /**
+   * Show a list of all dashboards.
+   * GET dashboards
+   *
+   * @param {object} ctx
+   * @param {Request} ctx.request
+   * @param {Response} ctx.response
+   * @param {View} ctx.view
+   */
+   async delArticle ({ request, response, view }) {
+    return view.render('admin.delArticle')
+  }
+
+  /**
    * Render a form to be used for creating a new dashboard.
    * GET dashboards/create
    *

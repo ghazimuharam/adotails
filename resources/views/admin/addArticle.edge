@@ -3,7 +3,7 @@
 {{--  BEGIN CONTENT  --}}
 @section('body')
 <div class="container mx-auto px-6 py-8">
-  <h3 class="text-gray-700 text-3xl font-medium">Setting</h3>
+  <h3 class="text-gray-700 text-3xl font-medium">Add Article</h3>
 
 <div class="border- border-black rounded-2xl shadow-2xl m-auto md:w-full p-8 md:p-16">
   @if(flashMessage('successMessage'))
@@ -31,26 +31,26 @@
     <div class="flex flex-col space-y-5 text-center py-2">
       <div class="flex flex-col items-start md:flex-row md:items-center md:space-x-3">
         <div class="w-1/12 text-left">
-          <label for="username">Username</label>
+          <label for="url">Url</label>
         </div>
         <div class="w-full md:w-11/12">
-          <input class="p-1 pl-2 py-3 rounded-lg focus:outline-none w-full" type="text" name="username" value="{{ old('username') }}">
+          <input class="p-1 pl-2 py-3 rounded-lg focus:outline-none w-full" type="text" name="url" value="{{ old('url') }}">
         </div>
       </div>
       <div class="flex flex-col items-start md:flex-row md:items-center md:space-x-3">
         <div class="w-1/12 text-left">
-          <label for="email">Email Address</label>
+          <label for="title">Title</label>
         </div>
         <div class="w-full md:w-11/12">
-          <input class="p-1 pl-2 py-3 rounded-lg focus:outline-none w-full" type="text" name="email" value="{{ old('email') }}">
+          <input class="p-1 pl-2 py-3 rounded-lg focus:outline-none w-full" type="text" name="title" value="{{ old('title') }}">
         </div>
       </div>
       <div class="flex flex-col items-start md:flex-row md:items-center md:space-x-3">
         <div class="w-1/12 text-left">
-          <label for="password">Password</label>
+          <label for="description">Description</label>
         </div>
         <div class="w-full md:w-11/12">
-          <input class="p-1 pl-2 py-3 rounded-lg focus:outline-none w-full" type="password" name="password" value="{{ old('password') }}">
+          <input class="p-1 pl-2 py-3 rounded-lg focus:outline-none w-full" type="textarea" name="description" value="{{ old('description') }}">
         </div>
       </div>
 

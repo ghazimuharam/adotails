@@ -7,7 +7,7 @@
 
 <div class="flex flex-col">
   <div class="text-right text-green-600 text-4xl">
-    <a href="">+</a>
+    <a href="{{ route('get.dashboard.addArticle') }}">+</a>
   </div>
   <div class="-my-2 sm:-mx-6 lg:-mx-8">
     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -19,6 +19,9 @@
                 Action
               </th>
               <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
+                Title
+              </th>
+              <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 tracking-wider">
                 Article
               </th>
             </tr>
@@ -27,9 +30,12 @@
             <tr>
               <td class="px-6 py-4 whitespace-nowrap">
                 <div class="flex items-center">
-                  <a class="text-yellow-400 px-3" href="">Edit</a>
-                  <a class="text-red-600" href="">Delete</a>
+                  <a class="text-yellow-400 px-3" href="{{ route('get.dashboard.editArticle') }}">Edit</a>
+                  <a class="text-red-600" href="{{ route('get.dashboard.delArticle') }}">Delete</a>
                 </div>
+              </td>
+              <td class="px-6 py-4">
+                <div class="text-sm text-gray-900">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
               </td>
               <td class="px-6 py-4">
                 <div class="text-sm text-gray-900">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo mauris at augue cursus, et laoreet lorem imperdiet. Cras finibus malesuada augue, vel semper diam suscipit at. Curabitur sed nulla mattis, condimentum purus vel, lacinia velit. Aliquam dignissim sapien a mi laoreet, nec feugiat diam consectetur. Nam sem tellus, condimentum tristique ligula malesuada, mollis lacinia massa. Nam varius pretium porttitor.</div>
