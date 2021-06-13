@@ -5,6 +5,7 @@
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
 const Report = use('App/Models/Report')
+const Article = use('App/Models/Article')
 const { validate } = use('Validator')
 
 /**
@@ -22,41 +23,6 @@ class LandingController {
    */
   async index ({ request, response, view }) {
     return view.render('landing.index')
-  }
-
-  /**
-   * Render a form to be used for creating a new landing.
-   * GET landings/create
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async create ({ request, response, view }) {
-  }
-
-  /**
-   * Create/save a new landing.
-   * POST landings
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   */
-  async store ({ request, response }) {
-  }
-
-  /**
-   * Display a single landing.
-   * GET landings/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async show ({ params, request, response, view }) {
   }
 
   /**
@@ -82,7 +48,9 @@ class LandingController {
    * @param {View} ctx.view
    */
   async showArticle ({ params, request, response, view }) {
-    return view.render('landing.article')
+    const articles = await Article.all()
+
+    return view.render('landing.article', {articles: articles.toJSON()})
   }
 
   /**
@@ -156,40 +124,6 @@ class LandingController {
    */
    async successReport ({ params, request, response, view }) {
      return view.render('landing.send')
-  }
-
-  /**
-   * Render a form to update an existing landing.
-   * GET landings/:id/edit
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
-   */
-  async edit ({ params, request, response, view }) {
-  }
-
-  /**
-   * Update landing details.
-   * PUT or PATCH landings/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   */
-  async update ({ params, request, response }) {
-  }
-
-  /**
-   * Delete a landing with id.
-   * DELETE landings/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   */
-  async destroy ({ params, request, response }) {
   }
 }
 

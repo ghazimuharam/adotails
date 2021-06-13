@@ -12,22 +12,25 @@
 
   {{--  BEGIN CONTENT  --}}
   <section class="items-center align-middle py-8">
-    <div class="container mx-5 md:mx-20">
+    <div class="mx-5 md:mx-20">
       <h1 class="text-4xl font-semibold leading-tight my-6">Articles & News</h1>
-
-      <div class="border- border-black rounded-2xl shadow-md w-11/12 md:h-64 p-4 mb-6">
-        <div class="flex flex-col md:flex-row">
-          <div class="flex w-full md:w-1/2 py-5 md:py-0 md:mx-6 items-center align-middle rounded-lg">
-            <img src="{{ assetsUrl('assets/logo/logo.png') }}" alt=""></div>
-          <div class="flex flex-col md:px-5">
-            <h1 class="text-lg md:text-2xl font-semibold leading-tight mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo mauris at augue cursus, et laoreet lorem imperdiet.</h1>
-
-            <p class="text-sm md:text-lg">
-              Cras finibus malesuada augue, vel semper diam suscipit at. Curabitur sed nulla mattis, condimentum purus vel, lacinia velit. Aliquam dignissim sapien a mi laoreet, nec feugiat diam consectetur. Nam sem tellus, condimentum tristique ligula malesuada, mollis lacinia massa. Nam varius pretium porttitor. Donec lacus tortor, maximus sed euismod sit amet, consectetur in erat. Sed euismod molestie mi vel gravida. Sed tempor convallis libero, ac molestie mi fermentum eu. Nullam nisl tellus, imperdiet at odio id, fringilla viverra libero. Quisque tempor suscipit sapien nec accumsan. Quisque eget enim blandit, blandit urna quis, malesuada mauris.
-            </p>
-          </div>
+        <div class="flex flex-col space-y-5">
+          @each(article in articles)
+            <div class="flex flex-col items-center md:items-start md:space-x-10 md:flex-row bg-white shadow-xl p-2 md:p-10 rounded-lg">
+              <div class="items-center md:w-2/12">
+                <img class="object-none object-center h-64 w-64" src="{{ article.url }}">
+              </div>
+              <div class="flex flex-col w-full overflow-x-auto md:w-10/12 space-y-3">
+                <div class="text-xl md:text-2xl font-semibold">
+                  <h1>{{ article.title }}</h1>
+                </div>
+                <p class="w-full overflow-ellipsis text-justify">
+                  {{ article.article }}.
+                </p>
+              </div>
+            </div>
+          @endeach
         </div>
-      </div>
     </div>
   </section>
 </body>

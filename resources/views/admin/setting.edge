@@ -11,22 +11,12 @@
       {{ flashMessage('successMessage') }}
     </div>
   @endif
-  @if(flashMessage('errorMessage'))
+  @if(flashMessage('failedMessage'))
     <div class="bg-red-300 p-2 rounded-lg">
-      <ul>
-      @if(hasErrorFor('url'))
-        <li>{{ getErrorFor('url') }}</li>
-      @endif
-      @if(hasErrorFor('title'))
-        {{ getErrorFor('title') }}
-      @endif
-      @if(hasErrorFor('description'))
-        {{ getErrorFor('description') }}
-      @endif
-      </ul>
+      {{ flashMessage('failedMessage') }}
     </div>
   @endif
-  <form action="{{ route('post.article') }}" method="POST" class="flex flex-col space-y-2">
+  <form action="{{ route('post.dashboard.setting') }}" method="POST" class="flex flex-col space-y-2">
     {{ csrfField() }}
     <div class="flex flex-col space-y-5 text-center py-2">
       <div class="flex flex-col items-start md:flex-row md:items-center md:space-x-3">

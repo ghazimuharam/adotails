@@ -7,6 +7,9 @@
 const User = use('App/Models/User')
 const Report = use('App/Models/Report')
 const Article = use('App/Models/Article')
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
 /**
  * Resourceful controller for interacting with dashboards
  */
@@ -82,9 +85,26 @@ class DashboardController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-   async storeSetting ({ request, auth, view }) {
+   async storeSetting ({ request, response, session, auth, view }) {
     const user = await auth.user
-    return view.render('admin.setting', {user: user.toJSON()})
+
+    const validPassword = await bcrypt.compare(
+      request.body.password, // the plane text password that we get from the client
+      user.password,     // the hashed password from our database
+    )
+    
+    if(!validPassword){
+      session.flash({failedMessage: 'Invalid password!'})
+    }else{
+      user.username = request.body.username
+      user.email = request.body.email
+
+      await user.save()
+
+      session.flash({successMessage: 'Data has changed!'})
+    }
+    
+    return response.redirect('back')
   }
 
   /**
