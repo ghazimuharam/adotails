@@ -7,7 +7,7 @@
 
 <div class="flex flex-col">
   <div class="text-right text-green-600 text-4xl">
-    <a href="{{ route('get.dashboard.addArticle') }}">+</a>
+    <a href="{{ route('get.dashboard.createArticle') }}">+</a>
   </div>
   <div class="-my-2 sm:-mx-6 lg:-mx-8">
     <div class="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
@@ -27,20 +27,22 @@
             </tr>
           </thead>
           <tbody class="bg-white divide-y divide-gray-200">
-            <tr>
-              <td class="px-6 py-4 whitespace-nowrap">
-                <div class="flex items-center">
-                  <a class="text-yellow-400 px-3" href="{{ route('get.dashboard.editArticle') }}">Edit</a>
-                  <a class="text-red-600" href="{{ route('get.dashboard.delArticle') }}">Delete</a>
-                </div>
-              </td>
-              <td class="px-6 py-4">
-                <div class="text-sm text-gray-900">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
-              </td>
-              <td class="px-6 py-4">
-                <div class="text-sm text-gray-900">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam commodo mauris at augue cursus, et laoreet lorem imperdiet. Cras finibus malesuada augue, vel semper diam suscipit at. Curabitur sed nulla mattis, condimentum purus vel, lacinia velit. Aliquam dignissim sapien a mi laoreet, nec feugiat diam consectetur. Nam sem tellus, condimentum tristique ligula malesuada, mollis lacinia massa. Nam varius pretium porttitor.</div>
-              </td>
-            </tr>
+            @each(article in articles)
+              <tr>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <div class="flex items-center">
+                    <a class="text-yellow-400 px-3" href="{{ route('get.dashboard.editArticle', {_id: article._id}) }}">Edit</a>
+                    <a class="text-red-600" href="{{ route('get.dashboard.delArticle', {_id: article._id}) }}">Delete</a>
+                  </div>
+                </td>
+                <td class="px-6 py-4">
+                  <div class="text-sm text-gray-900">{{ article.title }}.</div>
+                </td>
+                <td class="px-6 py-4">
+                  <div class="text-sm text-gray-900">{{ article.article }}.</div>
+                </td>
+              </tr>
+            @endeach
             <!-- More people... -->
           </tbody>
         </table>

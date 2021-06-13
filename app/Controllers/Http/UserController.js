@@ -21,6 +21,13 @@ class UserController {
 
         return response.route('get.login')
     }
+
+    async me({auth}){
+        const user = await User.find(auth.user._id)
+        const userProfile = await user.articles().fetch()
+
+        return userProfile
+    }
 }
 
 module.exports = UserController

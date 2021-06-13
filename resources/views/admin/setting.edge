@@ -34,7 +34,7 @@
           <label for="username">Username</label>
         </div>
         <div class="w-full md:w-11/12">
-          <input class="p-1 pl-2 py-3 rounded-lg focus:outline-none w-full" type="text" name="username" value="{{ old('username') }}">
+          <input class="p-1 pl-2 py-3 rounded-lg focus:outline-none w-full" type="text" name="username" value="{{ user.username }}">
         </div>
       </div>
       <div class="flex flex-col items-start md:flex-row md:items-center md:space-x-3">
@@ -42,7 +42,7 @@
           <label for="email">Email Address</label>
         </div>
         <div class="w-full md:w-11/12">
-          <input class="p-1 pl-2 py-3 rounded-lg focus:outline-none w-full" type="text" name="email" value="{{ old('email') }}">
+          <input class="p-1 pl-2 py-3 rounded-lg focus:outline-none w-full" type="text" name="email" value="{{ user.email }}">
         </div>
       </div>
       <div class="flex flex-col items-start md:flex-row md:items-center md:space-x-3">
@@ -50,8 +50,9 @@
           <label for="password">Password</label>
         </div>
         <div class="w-full md:w-11/12">
-          <input class="p-1 pl-2 py-3 rounded-lg focus:outline-none w-full" type="password" name="password" value="{{ old('password') }}">
+          <input class="p-1 pl-2 py-3 rounded-lg focus:outline-none w-full" type="password" name="password">
         </div>
+      </div>
       </div>
 
     <div class="text-right">

@@ -6,7 +6,7 @@
 
 const User = use('App/Models/User')
 const Report = use('App/Models/Report')
-
+const Article = use('App/Models/Article')
 /**
  * Resourceful controller for interacting with dashboards
  */
@@ -39,7 +39,9 @@ class DashboardController {
    * @param {View} ctx.view
    */
    async article ({ request, response, view }) {
-    return view.render('admin.article')
+    const articles = await Article.all()
+
+    return view.render('admin.article', {articles: articles.toJSON()})
   }
 
   /**
@@ -66,8 +68,9 @@ class DashboardController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-   async setting ({ request, response, view }) {
-    return view.render('admin.setting')
+   async createSetting ({ request, auth, view }) {
+    const user = await auth.user
+    return view.render('admin.setting', {user: user.toJSON()})
   }
 
   /**
@@ -79,7 +82,21 @@ class DashboardController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-   async addArticle ({ request, response, view }) {
+   async storeSetting ({ request, auth, view }) {
+    const user = await auth.user
+    return view.render('admin.setting', {user: user.toJSON()})
+  }
+
+  /**
+   * Show a list of all dashboards.
+   * GET dashboards
+   *
+   * @param {object} ctx
+   * @param {Request} ctx.request
+   * @param {Response} ctx.response
+   * @param {View} ctx.view
+   */
+   async createArticle ({ request, response, view }) {
     return view.render('admin.addArticle')
   }
 
@@ -92,8 +109,57 @@ class DashboardController {
    * @param {Response} ctx.response
    * @param {View} ctx.view
    */
-   async editArticle ({ request, response, view }) {
-    return view.render('admin.editArticle')
+   async storeArticle ({ request, response, auth, session }) {
+    const dataArticle = request.body
+    const article = new Article()
+
+    article.authorId = auth.user._id
+    article.title = dataArticle.title
+    article.article = dataArticle.description
+    article.url = dataArticle.url
+
+    await article.save()
+
+    session.flash({successMessage: 'Article added successfully!'})
+
+    return response.redirect('back')
+  }
+
+  /**
+   * Show a list of all dashboards.
+   * GET dashboards
+   *
+   * @param {object} ctx
+   * @param {Request} ctx.request
+   * @param {Response} ctx.response
+   * @param {View} ctx.view
+   */
+   async createEditArticle ({ request, response, view }) {
+    const article = await Article.find(request.params._id)
+    return view.render('admin.editArticle', {article: article.toJSON()})
+  }
+
+  /**
+   * Show a list of all dashboards.
+   * GET dashboards
+   *
+   * @param {object} ctx
+   * @param {Request} ctx.request
+   * @param {Response} ctx.response
+   * @param {View} ctx.view
+   */
+   async storeEditArticle ({ request, response, session }) {
+    const article = await Article.find(request.params._id)
+    
+    article.url = request.body.url
+    article.title = request.body.title
+    article.article = request.body.description
+
+    await article.save()
+
+    session.flash({successMessage: 'Article edited successfully!'})
+
+    return response.redirect('back')
   }
 
   /**
@@ -106,7 +172,11 @@ class DashboardController {
    * @param {View} ctx.view
    */
    async delArticle ({ request, response, view }) {
-    return view.render('admin.delArticle')
+    const article = await Article.findOrFail(request.params._id)
+
+    article.delete()
+
+    return response.redirect('back')
   }
 
   /**

@@ -33,11 +33,16 @@ Route
     .group(() => {
         Route.get('/dashboard', 'DashboardController.index').as('get.dashboard')
         Route.get('/dashboard/articles', 'DashboardController.article').as('get.dashboard.article')
-        Route.get('/dashboard/addArticle', 'DashboardController.addArticle').as('get.dashboard.addArticle')
-        Route.get('/dashboard/editArticle', 'DashboardController.editArticle').as('get.dashboard.editArticle')
-        Route.get('/dashboard/delArticle', 'DashboardController.delArticle').as('get.dashboard.delArticle')
+        Route.get('/dashboard/createArticle', 'DashboardController.createArticle').as('get.dashboard.createArticle')
+        Route.post('/dashboard/createArticle', 'DashboardController.storeArticle').as('post.dashboard.storeArticle')
+
+        Route.get('/dashboard/editArticle/:_id', 'DashboardController.createEditArticle').as('get.dashboard.editArticle')
+        Route.post('/dashboard/editArticle/:_id', 'DashboardController.storeEditArticle').as('post.dashboard.editArticle')
+
+        Route.get('/dashboard/delArticle/:_id', 'DashboardController.delArticle').as('get.dashboard.delArticle')
         Route.get('/dashboard/report', 'DashboardController.report').as('get.dashboard.report')
-        Route.get('/dashboard/setting', 'DashboardController.setting').as('get.dashboard.setting')
+        Route.get('/dashboard/setting', 'DashboardController.createSetting').as('get.dashboard.setting')
+        Route.post('/dashboard/setting', 'DashboardController.storeSetting').as('post.dashboard.setting')
         Route.get('/logout', 'UserController.destroy').as('post.logout')
         Route.get('/me', 'UserController.me')
     }).middleware(['auth'])
