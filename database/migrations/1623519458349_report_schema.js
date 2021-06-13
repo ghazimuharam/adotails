@@ -13,6 +13,7 @@ class ReportSchema extends Schema {
       table.string('time')
       table.string('reporter')
       table.string('phone')
+      table.integer('status')
       table.timestamps()
     })
   }

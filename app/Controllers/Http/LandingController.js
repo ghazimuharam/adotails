@@ -136,6 +136,7 @@ class LandingController {
     report.time = requestData.time
     report.reporter = requestData.reporter
     report.phone = requestData.phone
+    report.status = 1
     
     await report.save()
 
