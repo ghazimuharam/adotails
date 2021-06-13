@@ -25,10 +25,10 @@ class DashboardController {
    */
   async index ({ request, response, view }) {
     const total_user = await User.all()
-    const open_report = await Report.where({status: 1}).fetch()
-    const close_report = await Report.where({status: 0}).fetch()
+    const total_article = await Article.all()
+    const total_report = await Report.all()
 
-    const stats = {total_user: total_user.toJSON().length, open_report: open_report.toJSON().length, close_report: close_report.toJSON().length}
+    const stats = {total_user: total_user.toJSON().length, total_article: total_article.toJSON().length, total_report: total_report.toJSON().length}
     return view.render('admin.dashboard', {stats: stats})
   }
 
